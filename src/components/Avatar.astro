@@ -1,20 +1,35 @@
 ---
 import { Image } from "astro:assets";
+import clsx from "clsx/lite";
 
 type Props = {
   image: ImageMetadata;
+  height?: number;
+  width?: number;
   loading?: "eager" | "lazy";
+  class?: string;
 };
 
-const { loading = "lazy", image } = Astro.props;
+const {
+  loading = "lazy",
+  image,
+  height = image.height,
+  width = image.width,
+  class: className,
+} = Astro.props;
+
+const classes = clsx(
+  "shrink-0 rounded-full object-cover",
+  className ? className : "h-12 w-12",
+);
 ---
 
 <Image
   src={image}
   alt=""
-  width={96}
-  height={96}
-  class="h-12 w-12 shrink-0 rounded-full object-cover"
+  width={width}
+  height={height}
+  class={classes}
   densities={[1, 1.5, 2]}
   loading={loading}
 />
