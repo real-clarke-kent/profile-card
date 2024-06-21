@@ -1,0 +1,67 @@
+---
+import Card from "@/components/Card.astro";
+import Avatar from "@/components/Avatar.astro";
+import Button from "@/components/Button.astro";
+import Github from "@/icons/Github.astro";
+import LinkIcon from "./LinkIcon.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import Instagram from "@/icons/Instagram.astro";
+import Twitter from "@/icons/Twitter.astro";
+
+interface Props {
+  image: ImageMetadata;
+  name: string;
+  tagline: string;
+  github?: string;
+  linkedin?: string;
+  instagram?: string;
+  twitter?: string;
+}
+
+const { image, name, tagline, github, linkedin, instagram, twitter } =
+  Astro.props;
+---
+
+<Card class="flex flex-col gap-10 px-4 py-6">
+  <div class="flex flex-col items-center gap-6">
+    <Avatar image={image} loading="eager" />
+    <header class="flex flex-col items-center gap-1">
+      <h1>{name}</h1>
+      <p class="text-sm">{tagline}</p>
+    </header>
+    <p class="text-center"><slot /></p>
+  </div>
+  <div class="flex flex-col gap-6">
+    <Button>Contact me</Button>
+    <div class="flex justify-center gap-4">
+      {
+        github && (
+          <LinkIcon href="#">
+            <Github />
+          </LinkIcon>
+        )
+      }
+      {
+        linkedin && (
+          <LinkIcon href="#">
+            <LinkedIn />
+          </LinkIcon>
+        )
+      }
+      {
+        instagram && (
+          <LinkIcon href="#">
+            <Instagram />
+          </LinkIcon>
+        )
+      }
+      {
+        twitter && (
+          <LinkIcon href="#">
+            <Twitter />
+          </LinkIcon>
+        )
+      }
+    </div>
+  </div>
+</Card>

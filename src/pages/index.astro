@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProfileCard from "@/components/ProfileCard.astro";
+import thumbnail from "@/assets/profile.png";
+
+import "@/styles/base.css";
+---
+
+<Layout title="Testimonial Card">
+  <main
+    class="flex min-h-dvh flex-col items-center gap-6 bg-secondary pt-[120px]"
+  >
+    <ProfileCard
+      image={thumbnail}
+      name="Sarah Dole"
+      tagline="Front End Engineer @ Microsoft"
+      github="#"
+      linkedin="#"
+      instagram="#"
+      twitter="#"
+    >
+      I turn coffee into bugs which are fixed by someone else. Certified Stack
+      Overflow and ChatGPT developer.
+    </ProfileCard>
+  </main>
+</Layout>
+
+<style>
+  main {
+    --Linear-Page: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
+    background: var(
+      --Linear-Page,
+      linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%)
+    );
+  }
+</style>
