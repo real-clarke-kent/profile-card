@@ -1,13 +1,15 @@
 ---
 type Props = {
   href: string;
+  ariaLabel: string
 };
 
-const { href } = Astro.props;
+const { href, ariaLabel } = Astro.props;
 ---
 
 <a
   href={href}
+  aria-label={ariaLabel}
   class="hover:bg-primary-hover focus:bg-primary-hover rounded p-2 text-brand focus:outline-none focus:ring-4 focus:ring-brand"
 >
   <slot />
