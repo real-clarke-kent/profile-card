@@ -1,4 +1,4 @@
-# Great Frontend: Blog Card
+# Astro project
 
 ## 🧞 Commands
 
